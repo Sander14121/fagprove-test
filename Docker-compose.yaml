@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  postgres:
+    networks:
+      - database
+    image: postgres
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fagprove-test
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+networks:
+  database:
+    driver: bridge
