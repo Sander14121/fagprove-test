@@ -1,2 +1,2 @@
 # fagprove-template
-Fagprøve øving
+Øving til fagprøven
