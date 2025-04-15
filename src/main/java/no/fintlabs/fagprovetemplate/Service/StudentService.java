@@ -5,6 +5,9 @@ import no.fintlabs.fagprovetemplate.model.dto.Student;
 import no.fintlabs.fagprovetemplate.model.entity.StudentEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class StudentService {
 
@@ -20,5 +23,11 @@ public class StudentService {
         StudentEntity studentEntity = mapper.mapStudent(student);
         studentRepository.save(studentEntity);
         return "Saved student with id " + studentEntity.getId();
+    }
+
+    public List<Student> getAll() {
+        return studentRepository.findAll()
+                .stream()
+                .map(entity -> mapper.mapToStudentDto(entity)).collect(Collectors.toList());
     }
 }

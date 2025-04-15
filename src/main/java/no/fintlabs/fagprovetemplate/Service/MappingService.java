@@ -38,4 +38,26 @@ public class MappingService {
         nameEntity.setLastName(name.getLastName());
         return nameEntity;
     }
+
+    public Student mapToStudentDto(StudentEntity studentEntity) {
+        return Student.builder()
+                .name(mapNameToDto(studentEntity.getNameEntity()))
+                .contactInfo(mapContactToDto(studentEntity.getContactInfoEntity()))
+                .avradeGrades(studentEntity.getAvradeGrades())
+                .build();
+    }
+
+    private ContactInfo mapContactToDto(ContactInfoEntity contactInfoEntity) {
+        return ContactInfo.builder()
+                .email(contactInfoEntity.getEmail())
+                .phoneNumber(contactInfoEntity.getPhoneNumber())
+                .build();
+    }
+
+    private Name mapNameToDto(NameEntity nameEntity) {
+        return Name.builder()
+                .firstName(nameEntity.getFirstName())
+                .lastName(nameEntity.getLastName())
+                .build();
+    }
 }
