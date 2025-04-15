@@ -8,18 +8,29 @@ import no.fintlabs.fagprovetemplate.model.entity.NameEntity;
 import no.fintlabs.fagprovetemplate.model.entity.StudentEntity;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MappingService {
 
+    private final CryptationService cryptationService;
+
+    public MappingService(CryptationService cryptationService) {
+        this.cryptationService = cryptationService;
+    }
+
 
     public StudentEntity mapStudent(Student student) {
-        StudentEntity studentEntity = new StudentEntity();
-        studentEntity.setId(student.getId());
-        studentEntity.setNameEntity(mapName(student.getName(), student.getId()));
-        studentEntity.setContactInfoEntity(mapContactInfo(student.getContactInfo(), student.getId()));
-        studentEntity.setAvradeGrades(student.getAvradeGrades());
-        return studentEntity;
-
+        try {
+            StudentEntity studentEntity = new StudentEntity();
+            studentEntity.setId(student.getId());
+            studentEntity.setFodselsnummer(cryptationService.encrypt(student.getFodselsnummer()));
+            studentEntity.setNameEntity(mapName(student.getName(), student.getId()));
+            studentEntity.setContactInfoEntity(mapContactInfo(student.getContactInfo(), student.getId()));
+            studentEntity.setAvradeGrades(student.getAvradeGrades());
+            return studentEntity;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private ContactInfoEntity mapContactInfo(ContactInfo contactInfo, String id) {
@@ -40,11 +51,17 @@ public class MappingService {
     }
 
     public Student mapToStudentDto(StudentEntity studentEntity) {
-        return Student.builder()
-                .name(mapNameToDto(studentEntity.getNameEntity()))
-                .contactInfo(mapContactToDto(studentEntity.getContactInfoEntity()))
-                .avradeGrades(studentEntity.getAvradeGrades())
-                .build();
+        try {
+            return Student.builder()
+                    .id(studentEntity.getId())
+                    .fodselsnummer(cryptationService.decrypt(studentEntity.getFodselsnummer()))
+                    .name(mapNameToDto(studentEntity.getNameEntity()))
+                    .contactInfo(mapContactToDto(studentEntity.getContactInfoEntity()))
+                    .avradeGrades(studentEntity.getAvradeGrades())
+                    .build();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private ContactInfo mapContactToDto(ContactInfoEntity contactInfoEntity) {
