@@ -1,4 +1,4 @@
-package no.fintlabs.fagprovetemplate;
+package no.fintlabs.fagproveOving;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,9 +1,9 @@
-package no.fintlabs.fagprovetemplate.Service;
+package no.fintlabs.fagproveOving.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import no.fintlabs.fagprovetemplate.Repository.StudentRepository;
-import no.fintlabs.fagprovetemplate.model.dto.Student;
-import no.fintlabs.fagprovetemplate.model.entity.StudentEntity;
+import no.fintlabs.fagproveOving.Repository.StudentRepository;
+import no.fintlabs.fagproveOving.model.dto.Student;
+import no.fintlabs.fagproveOving.model.entity.StudentEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

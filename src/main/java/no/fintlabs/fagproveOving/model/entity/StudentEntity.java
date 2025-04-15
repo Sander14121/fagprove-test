@@ -1,4 +1,4 @@
-package no.fintlabs.fagprovetemplate.model.entity;
+package no.fintlabs.fagproveOving.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

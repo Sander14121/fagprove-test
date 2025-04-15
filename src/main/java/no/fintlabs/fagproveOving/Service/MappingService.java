@@ -1,11 +1,11 @@
-package no.fintlabs.fagprovetemplate.Service;
+package no.fintlabs.fagproveOving.Service;
 
-import no.fintlabs.fagprovetemplate.model.dto.ContactInfo;
-import no.fintlabs.fagprovetemplate.model.dto.Name;
-import no.fintlabs.fagprovetemplate.model.dto.Student;
-import no.fintlabs.fagprovetemplate.model.entity.ContactInfoEntity;
-import no.fintlabs.fagprovetemplate.model.entity.NameEntity;
-import no.fintlabs.fagprovetemplate.model.entity.StudentEntity;
+import no.fintlabs.fagproveOving.model.dto.ContactInfo;
+import no.fintlabs.fagproveOving.model.dto.Name;
+import no.fintlabs.fagproveOving.model.dto.Student;
+import no.fintlabs.fagproveOving.model.entity.ContactInfoEntity;
+import no.fintlabs.fagproveOving.model.entity.NameEntity;
+import no.fintlabs.fagproveOving.model.entity.StudentEntity;
 import org.springframework.stereotype.Service;
 
 

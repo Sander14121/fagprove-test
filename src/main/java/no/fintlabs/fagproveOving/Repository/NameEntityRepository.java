@@ -1,6 +1,6 @@
-package no.fintlabs.fagprovetemplate.Repository;
+package no.fintlabs.fagproveOving.Repository;
 
-import no.fintlabs.fagprovetemplate.model.entity.NameEntity;
+import no.fintlabs.fagproveOving.model.entity.NameEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package no.fintlabs.fagprovetemplate.Service;
+package no.fintlabs.fagproveOving.Service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

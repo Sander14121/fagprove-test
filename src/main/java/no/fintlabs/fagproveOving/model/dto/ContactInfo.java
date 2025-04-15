@@ -1,4 +1,4 @@
-package no.fintlabs.fagprovetemplate.model.dto;
+package no.fintlabs.fagproveOving.model.dto;
 
 import lombok.Builder;
 import lombok.Getter;

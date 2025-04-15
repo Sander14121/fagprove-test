@@ -1,7 +1,7 @@
-package no.fintlabs.fagprovetemplate.Controller;
+package no.fintlabs.fagproveOving.Controller;
 
-import no.fintlabs.fagprovetemplate.Service.StudentService;
-import no.fintlabs.fagprovetemplate.model.dto.Student;
+import no.fintlabs.fagproveOving.Service.StudentService;
+import no.fintlabs.fagproveOving.model.dto.Student;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
