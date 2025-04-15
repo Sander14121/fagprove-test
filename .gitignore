@@ -1,23 +1,12 @@
-# Gradle
-.gradle/
-build/
+/build/
+/out/
+/.gradle/
+/.idea/
+/*.iml
 
-# IntelliJ IDEA
-.idea/
-*.iml
-
-# Java build output
-out/
-classes/
-bin/
-
-# Log files
+# Logs
 *.log
 
-# Temporary files
-*.tmp
-*.swp
-
-# OS-specific files
+# OS-filer
 .DS_Store
 Thumbs.db
