@@ -12,6 +12,8 @@ public class StudentEntity {
     @Id
     private String id;
 
+    private String fodselsnummer;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "name_id", referencedColumnName = "id")
     private NameEntity nameEntity;
@@ -20,6 +22,6 @@ public class StudentEntity {
     @JoinColumn(name = "contact_info_id", referencedColumnName = "id")
     private ContactInfoEntity contactInfoEntity;
 
-    private long avradeGrades;
+    private float avradeGrades;
 
 }

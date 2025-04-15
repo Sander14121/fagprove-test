@@ -9,8 +9,9 @@ import lombok.Setter;
 @Setter
 @Builder
 public class Student {
+    private String id;
+    private String fodselsnummer;
     private Name name;
     private ContactInfo contactInfo;
-    private String Id;
-    private long avradeGrades;
+    private float avradeGrades;
 }
