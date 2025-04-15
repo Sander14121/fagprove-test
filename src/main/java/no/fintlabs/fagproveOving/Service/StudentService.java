@@ -53,7 +53,7 @@ public class StudentService {
     }
 
 
-    private boolean exists(String id) {
+    public boolean exists(String id) {
         return studentRepository.existsById(Long.parseLong(id));
     }
 }
