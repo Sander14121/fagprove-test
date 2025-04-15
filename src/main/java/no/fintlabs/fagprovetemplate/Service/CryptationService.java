@@ -15,18 +15,18 @@ public class CryptationService {
     @Value("${cryptation.key}")
     private String KEY;
 
-    private SecretKeySpec getKey(){
+    private SecretKeySpec getKey() {
         return new SecretKeySpec(KEY.getBytes(), ALGORITHM);
     }
 
-    public String encrypt(String text) throws Exception{
+    public String encrypt(String text) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, getKey());
         byte[] encrypted = cipher.doFinal(text.getBytes());
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
-    public String decrypt(String encryptedString) throws Exception{
+    public String decrypt(String encryptedString) throws Exception {
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, getKey());
         byte[] decoded = Base64.getDecoder().decode(encryptedString);

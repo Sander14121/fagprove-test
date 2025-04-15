@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import no.fintlabs.fagprovetemplate.Repository.StudentRepository;
 import no.fintlabs.fagprovetemplate.model.dto.Student;
 import no.fintlabs.fagprovetemplate.model.entity.StudentEntity;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
