@@ -1,10 +1,13 @@
 package no.fintlabs.fagproveOving.Controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import no.fintlabs.fagproveOving.Service.StudentService;
 import no.fintlabs.fagproveOving.model.dto.Student;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +22,10 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody Student student) {
-        return ResponseEntity.ok(studentService.addStudent(student));
+    public ResponseEntity<Student> create(@RequestBody Student student, HttpServletRequest request) {
+        Student savedStudent = (Student) studentService.addStudent(student);
+        URI location = URI.create(String.format("%s/%s", request.getRequestURL(), savedStudent.getId()));
+        return ResponseEntity.created(location).body(savedStudent);
     }
 
     @GetMapping
