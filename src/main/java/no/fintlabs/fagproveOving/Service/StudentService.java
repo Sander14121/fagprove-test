@@ -21,11 +21,10 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public String addStudent(Student student) {
+    public Object addStudent(Student student) {
         try {
-            StudentEntity studentEntity = mapper.mapStudent(student);
-            studentRepository.save(studentEntity);
-            return "Saved student with id " + studentEntity.getId();
+            studentRepository.save(mapper.mapStudent(student));
+            return student;
         } catch (Exception e) {
             return "Error saving student with id " + student.getId() + " with cause " + e.getMessage();
         }
